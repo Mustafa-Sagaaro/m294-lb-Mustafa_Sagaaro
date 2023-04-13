@@ -1,0 +1,32 @@
+body {
+    background-color: #e9d5da;
+    margin-left: 50px;
+}
+
+
+#title {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    color: #363062;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#Inputfeld {
+    font-size: 20px;
+}
+
+input {
+    width: 600px;
+    margin: 20px;
+    height: 30px;
+    padding: 10px;
+    border:0;
+    border-radius: 4px;
+}
+
+#Aufträge h1{
+    font-size: 38px;
+    margin-top: 50px;
+    font-family: 'Ubuntu', sans-serif;
+}

@@ -11,3 +11,41 @@ body {
     color: #363062;
     font-family: 'Ubuntu', sans-serif;
 }
+
+#Menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    margin: 15px;
+    width: 300px;
+    height: 75px;
+    border: 0;
+    color: white;
+    background-color: #4d4c7d;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 8px;
+    display: inline-block;
+    min-height: 28px;
+    transition: .24s;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+
+button:hover {
+    background-color: #827397;
+    scale: 1.1;
+}
+
+footer {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+
+}
