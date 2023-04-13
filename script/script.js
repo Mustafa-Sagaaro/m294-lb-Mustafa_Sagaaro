@@ -1,4 +1,5 @@
 
+// Nach Tasks suchen
 
 function searchTasks() {
   const suche = document.getElementById('search').value;
@@ -17,6 +18,7 @@ function searchTasks() {
     });
 }
 
+// Tasks anzeigen lassen, als Karten.
 
 function Taskanzeigen(tasks) {
   const taskContainer = document.querySelector('.taskcontainer');
@@ -40,6 +42,7 @@ function Taskanzeigen(tasks) {
   });
 }
 
+// Anzeigen der Tasks auf 9 begränzt
 
 fetch('http://localhost:3000/tasks')
   .then((response) => response.json())
@@ -48,6 +51,7 @@ fetch('http://localhost:3000/tasks')
     Taskanzeigen(firstTasks);
   });
 
+  // Tasks löschen
 
 function deleteTask(taskId) {
   fetch(`http://localhost:3000/task/${taskId}`, {
@@ -67,7 +71,7 @@ const taskCard = document.createElement('div');
 taskCard.classList.add('taskcard');
 taskCard.setAttribute('data-task-id', task.id);
 
-
+// Tasks hinzufügen
 
 function addTask() {
   const Aufgaben_name = document.getElementById('Aufgaben-name').value;
