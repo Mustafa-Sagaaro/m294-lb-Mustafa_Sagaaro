@@ -1,0 +1,13 @@
+body {
+    background-color: #e9d5da;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    align-items: center;
+    font-size: 58px;
+    color: #363062;
+    font-family: 'Ubuntu', sans-serif;
+}
