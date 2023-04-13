@@ -9,23 +9,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/List.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Deine Aufträge</title>
 </head>
 
 <body>
     <div id="title">
         <h1>Deine Aufträge</h1>
-
     </div>
-    <h2>Suche nach einem Auftrag</h2>
-    <div id="Inputfeld">
-        <label for="Suchen">Suchen:</label><input type="text" placeholder="Suche nach einen Auftrag...">
-    </div>
+    <form onsubmit="event.preventDefault(); searchTasks();">
+        <h2>Suche nach einem Auftrag</h2>
+        <input type="text" id="search" placeholder="Suche nach einem Auftrag...">
+        <button type="submit" id="submitbutton">Suchen</button>
+        <div id="results"></div>
+    </form>
     <div id="Aufträge">
         <h1>Aufträge</h1>
-        <div class="task-container"></div>
+        <div class="taskcontainer"></div>
     </div>
-    
 </body>
+
 <script src="../script/Listtasks.js"></script>
+
 </html>
