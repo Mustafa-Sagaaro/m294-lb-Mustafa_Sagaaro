@@ -1,0 +1,24 @@
+body {
+    background-color: #e9d5da;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    align-items: center;
+    font-size: 36px;
+    color: #363062;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#hinzufügen {
+    display: flex;
+    justify-content: center;
+}
+
+#formular {
+    width: 800px;
+    height: 500px;
+    background-color: #827397;
+}
