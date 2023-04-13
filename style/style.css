@@ -27,7 +27,7 @@ button {
     color: white;
     background-color: #4d4c7d;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 500;
     padding: 4px 8px;
     display: inline-block;
@@ -44,6 +44,7 @@ button:hover {
 }
 
 footer {
+    font-size: 17px;
     margin-top: 200px;
     display: flex;
     justify-content: center;
