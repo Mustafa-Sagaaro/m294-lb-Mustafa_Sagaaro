@@ -8,18 +8,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/add.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>hinzufügen</title>
 </head>
 
 <body>
+    <div id="Home">
+        <a href="Index.html"><button id="home-button" ><i class="material-icons">home</i></button></a>
+    </div>
     <div id="title">
         <h1>Aufträge hinzufügen</h1>
     </div>
     <div id="hinzufügen">
         <div id="formular">
-            
+            <form onsubmit="event.preventDefault(); addTask();">
+                <div id="Name">
+                    <label for="Aufgaben-name" class="formularlabel">Titel:</label>
+                    <input type="text" id="Aufgaben-name" name="Aufgaben-name" required><br>
+                </div>
+                <div id="status">
+                    <label for="Aufgabe-erledigt" class="formularlabel">Erledigt?:</label>
+                    <input type="checkbox" id="Aufgabe-erledigt" name="Aufgabe-erledigt"><br>
+                </div>
+                <button type="submit" id="Buttonsubmit" placeholder="Text für die Task eingeben...">Auftrag hinzufügen</button>
+            </form>
         </div>
     </div>
+    <script src="../script/script.js"></script>
 </body>
 
 </html>

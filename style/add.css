@@ -21,4 +21,52 @@ body {
     width: 800px;
     height: 500px;
     background-color: #827397;
+    padding: 20px;
+}
+
+#home-button {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#home-button i {
+    font-size: 64px; /* Erhöhung der Schriftgröße */
+    text-align: center;
+    float: right;
+}
+
+#home-button:hover {
+    color: #827397;
+}
+
+.formularlabel {
+    font-size: 38px;
+    margin: 10px;
+}
+
+input[type="checkbox"] {
+    transform: scale(2);
+  }
+
+#Name input {
+    width: 600px;
+    height: 40px;
+    border-radius: 7px;
+
+}
+#Buttonsubmit {
+    margin-top: 80px;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    color: #363062;
+    font-weight:bold;
+}
+
+#status {
+    margin-top: 50px;
 }

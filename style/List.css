@@ -61,3 +61,21 @@ input {
     background-color: #827397;
     scale: 1.1;
 }
+#home-button {
+    position: fixed;
+    top: 20px;
+    right: -300px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#home-button i {
+    font-size: 64px; /* Erhöhung der Schriftgröße */
+    text-align: center;
+    float: right;
+}
+
+#home-button:hover {
+    color: #827397;
+}
