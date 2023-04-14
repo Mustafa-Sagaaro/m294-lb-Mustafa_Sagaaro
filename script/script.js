@@ -1,10 +1,18 @@
+const token = sessionStorage.getItem("token")
+
 
 // Nach Tasks suchen
 
 function searchTasks() {
   const suche = document.getElementById('search').value;
 
-  fetch('http://localhost:3000/tasks')
+  fetch('http://localhost:3000/auth/jwt/tasks', {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  })
     .then((response) => response.json())
     .then((tasks) => {
       const filteredTasks = tasks.filter((task) => {
@@ -32,11 +40,11 @@ function Taskanzeigen(tasks) {
       <h2>${task.title}</h2>
       <p>Erledigt: ${task.completed}</p>
       <p>id: ${task.id}</p>`;
-      
+
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = '<i class="material-icons">delete</i>';
     deleteButton.onclick = () => deleteTask(task.id);
-    deleteButton.style.cssText = 'float: right; background-color: transparent; border-radius:5px;';    
+    deleteButton.style.cssText = 'float: right; background-color: transparent; border-radius:5px;';
     taskCard.appendChild(deleteButton);
     taskContainer.appendChild(taskCard);
   });
@@ -44,19 +52,28 @@ function Taskanzeigen(tasks) {
 
 // Anzeigen der Tasks auf 9 begränzt
 
-fetch('http://localhost:3000/tasks')
+fetch('http://localhost:3000/auth/jwt/tasks', {
+  method: 'GET',
+  headers: {
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json'
+  }
+})  
   .then((response) => response.json())
   .then((tasks) => {
     const firstTasks = tasks.slice(0, 9);
     Taskanzeigen(firstTasks);
   });
 
-  // Tasks löschen
-
+// Tasks löschen
 function deleteTask(taskId) {
-  fetch(`http://localhost:3000/task/${taskId}`, {
+  fetch(`http://localhost:3000/auth/jwt/task/${taskId}`, {
     method: 'DELETE',
-  })  
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  })
     .then((response) => {
       if (response.ok) {
         const taskCard = document.querySelector(`.taskcard[data-task-id="${taskId}"]`);
@@ -67,9 +84,7 @@ function deleteTask(taskId) {
     })
 }
 
-const taskCard = document.createElement('div');
-taskCard.classList.add('taskcard');
-taskCard.setAttribute('data-task-id', task.id);
+
 
 // Tasks hinzufügen
 
@@ -82,9 +97,10 @@ function addTask() {
     completed: Aufgabe_erledigt,
   };
 
-  fetch('http://localhost:3000/tasks', {
+  fetch('http://localhost:3000/auth/jwt/tasks', {
     method: 'POST',
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(taskData),
@@ -103,3 +119,4 @@ function addTask() {
       alert('Fehler beim Hinzufügen des Auftrags. Bitte versuche es erneut.');
     });
 }
+

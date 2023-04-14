@@ -9,21 +9,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="../style/style.css">
 </head>
 
 <body>
+    <div id="Home">
+        <a href="#"><button id="home-button" onclick="logout()"><span class="material-symbols-outlined" style="font-size: 60px; color: #363062;">
+                    logout
+                </span></button></a>
+    </div>
     <div id="title">
         <h1>My Tasks</h1>
     </div>
     <div id="Menu">
-            <a href="listtasks.html"><button>Aufgaben ansehen</button></a>
-            <a href="addtasks.html"><button>Aufgaben hinzufügen</button></a>
-            <a href="#"><button>Aufgaben anpassen</button></a>
+        <a href="listtasks.html"><button>Aufgaben ansehen</button></a>
+        <a href="addtasks.html"><button>Aufgaben hinzufügen</button></a>
+        <a href="edittasks.html"><button>Aufgaben anpassen</button></a>
     </div>
     <footer>
         Copyright © - Mustafa Sagaaro
     </footer>
 </body>
+<script src="../script/Login.js"></script>
 
 </html>
