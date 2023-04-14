@@ -39,7 +39,7 @@ async function logout() {
       credentials: 'include'
     });
     if (response.ok) {
-      sessionStorage.removeItem('token'); // Token aus dem sessionStorage entfernen
+      sessionStorage.removeItem('token');
       window.location.href = 'login.html';
     }
   } catch (error) {

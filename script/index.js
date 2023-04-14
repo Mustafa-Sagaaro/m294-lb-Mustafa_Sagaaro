@@ -7,7 +7,7 @@ const response = await fetch('http://localhost:3000/auth/cookie/logout', {
   credentials: 'include'
 });
 if (response.ok) {
-  sessionStorage.removeItem('token'); // Token aus dem sessionStorage entfernen
+  sessionStorage.removeItem('token'); 
   window.location.href = 'login.html';
 }
 } catch (error) {
