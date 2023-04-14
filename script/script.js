@@ -56,10 +56,16 @@ function Taskanzeigen(tasks) {
     deleteButton.onclick = () => deleteTask(task.id);
     deleteButton.style.cssText = 'float: right; background-color: transparent; border-radius:5px;';
     taskCard.appendChild(deleteButton);
+
+    taskCard.onclick = (event) => {
+      if (event.target !== deleteButton && event.target !== deleteButton.firstChild) {
+        openTaskModal(task);
+      }
+    };
+
     taskContainer.appendChild(taskCard);
   });
 }
-
 // Anzeigen der Tasks auf 9 begränzt
 
 fetch('http://localhost:3000/auth/jwt/tasks', {
@@ -87,8 +93,10 @@ function deleteTask(taskId) {
     .then((response) => {
       if (response.ok) {
         const taskCard = document.querySelector(`.taskcard[data-task-id="${taskId}"]`);
+        alert('aufgabe erfolgreich gelöscht!');
         taskCard.remove();
       } else {
+        alert('aufgabe konnte nicht gelöscht werden');
         console.error('Fehler beim Löschen der Task:', response.status);
       }
     })
@@ -130,7 +138,7 @@ function addTask() {
     });
 }
 
-
+let taskCard;
 function editTask(taskId) {
   const newName = prompt('Neuer Aufgabenname:');
 
@@ -145,7 +153,7 @@ function editTask(taskId) {
     })
       .then((response) => {
         if (response.ok) {
-          const taskCard = document.querySelector(`.taskcard[data-task-id="${taskId}"]`);
+          let taskCard = document.querySelector(`.taskcard[data-task-id="${taskId}"]`);
           const titleElement = taskCard.querySelector('h2');
           titleElement.textContent = newName;
         } else {
@@ -155,6 +163,47 @@ function editTask(taskId) {
   }
 }
 
-const titleElement = taskCard.querySelector('h2');
-titleElement.addEventListener('click', () => editTask(task.id));
 
+function openTaskModal(task) {
+  const modal = document.getElementById('taskModal');
+  const span = document.getElementsByClassName('close')[0];
+  const editTaskBtn = document.getElementById('editTaskBtn');
+
+  document.getElementById('modal-title').innerText = task.title;
+  document.getElementById('modal-completed').innerText = `Erledigt: ${task.completed}`;
+  document.getElementById('modal-id').innerText = `id: ${task.id}`;
+
+  modal.style.display = 'block';
+
+  span.onclick = () => {
+    modal.style.display = 'none';
+  };
+
+  window.onclick = (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  editTaskBtn.onclick = () => {
+    editTask(task.id);
+  };
+}
+
+function SearchParameterFromUrl() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  return urlParams.get('search');
+
+}
+
+console.log(SearchParameterFromUrl())
+
+window.addEventListener('DOMContentLoaded', () => {
+  const searchParam = SearchParameterFromUrl();
+  if (searchParam) {
+    const searchInput = document.getElementById("search");
+    searchInput.value = searchParam;
+    searchTasks();
+  }
+});

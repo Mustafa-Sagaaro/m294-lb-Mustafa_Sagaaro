@@ -27,6 +27,7 @@ body {
     /* Erhöhung der Schriftgröße */
     text-align: center;
     float: right;
+    color: #363062;
 }
 
 #home-button:hover {

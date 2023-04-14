@@ -95,8 +95,10 @@ function deleteTask(taskId) {
     .then((response) => {
       if (response.ok) {
         const taskCard = document.querySelector(`.taskcard[data-task-id="${taskId}"]`);
+        alert('aufgabe erfolgreich gelöscht!');
         taskCard.remove();
       } else {
+        alert('aufgabe konnte nicht gelöscht werden');
         console.error('Fehler beim Löschen der Task:', response.status);
       }
     })
@@ -140,10 +142,12 @@ function deleteTask(taskId) {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
+          alert('Aufgabe erfolgreich bearbeitet')
           location.reload();
         })
         .catch((error) =>
-          console.error("Fehler beim Ändern der Aufgabe:", error)
+          console.error("Fehler beim bearbeiten der Aufgabe:", error),
+          alert('aufgabe konnte nicht gelöscht werden')
         );
     }
   });
