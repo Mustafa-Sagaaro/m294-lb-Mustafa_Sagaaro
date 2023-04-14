@@ -1,5 +1,6 @@
 body {
     background-color: #e9d5da;
+    scroll-behavior: smooth;
 }
 
 #title {
@@ -22,11 +23,69 @@ body {
 }
 
 #home-button i {
-    font-size: 64px; /* Erhöhung der Schriftgröße */
+    font-size: 64px;
+    /* Erhöhung der Schriftgröße */
     text-align: center;
     float: right;
 }
 
 #home-button:hover {
     color: #827397;
+}
+
+
+.taskcard {
+    border: 1px solid #827397;
+    padding: 10px;
+    background-color: #c7bbd8;
+    border-radius: 10px;
+    width: 500px;
+    margin: 10px;
+    align-self: center;
+
+}
+
+.taskcontainer {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+}
+
+
+/* Add some basic styling for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 225px;
+    background: rgba(0, 0, 0, 0.47);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#task-completed {
+    margin: 30px;
+}
+
+.close {
+    font-size: 30px;
 }

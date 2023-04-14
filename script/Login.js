@@ -39,9 +39,11 @@ async function logout() {
       credentials: 'include'
     });
     if (response.ok) {
+      sessionStorage.removeItem('token'); // Token aus dem sessionStorage entfernen
       window.location.href = 'login.html';
     }
   } catch (error) {
     console.error('Fehler beim Löschen des Tokens', error);
   }
 }
+

@@ -20,7 +20,27 @@
     <div id="title">
         <h1>Anpassen von Tasks</h1>
     </div>
+    <p style="text-align: center; font-size: 20px;">Hier siehst du alle deine Tasks</p>
+    <div>
+        <div class="taskcontainer"></div>
+    </div>
+    
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Aufgabe bearbeiten</h2>
+          <form id="edit-form">
+            <label for="task-name">Name:</label>
+            <input type="text" id="task-name" name="task-name">
+            <br>
+            <label for="task-completed">Abgeschlossen:</label>
+            <input type="checkbox" id="task-completed" name="task-completed">
+            <br>
+            <button type="submit">Speichern</button>
+          </form>
+        </div>
+      </div>
 </body>
-<script src="../script/script.js"></script>
+<script src="../script/edit.js"></script>
 
 </html>

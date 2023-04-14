@@ -1,5 +1,15 @@
 const token = sessionStorage.getItem("token")
 
+//Überprüft, ob man eingeloggt ist
+function checkIfLoggedIn() {
+  const token = sessionStorage.getItem("token");
+  if (!token) {
+    alert('Du bist nicht angemeldet, bitte melde dich an.');
+    logout();
+  }
+}
+
+checkIfLoggedIn();
 
 // Nach Tasks suchen
 
@@ -58,7 +68,7 @@ fetch('http://localhost:3000/auth/jwt/tasks', {
     'Authorization': `Bearer ${token}`,
     'Content-Type': 'application/json'
   }
-})  
+})
   .then((response) => response.json())
   .then((tasks) => {
     const firstTasks = tasks.slice(0, 9);
@@ -119,4 +129,32 @@ function addTask() {
       alert('Fehler beim Hinzufügen des Auftrags. Bitte versuche es erneut.');
     });
 }
+
+
+function editTask(taskId) {
+  const newName = prompt('Neuer Aufgabenname:');
+
+  if (newName) {
+    fetch(`http://localhost:3000/auth/jwt/tasks/${taskId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ title: newName })
+    })
+      .then((response) => {
+        if (response.ok) {
+          const taskCard = document.querySelector(`.taskcard[data-task-id="${taskId}"]`);
+          const titleElement = taskCard.querySelector('h2');
+          titleElement.textContent = newName;
+        } else {
+          console.error('Fehler beim Ändern des Aufgaben-Namens:', response.status);
+        }
+      })
+  }
+}
+
+const titleElement = taskCard.querySelector('h2');
+titleElement.addEventListener('click', () => editTask(task.id));
 
